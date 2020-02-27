@@ -1,0 +1,12 @@
+version: "3.7"
+
+services:
+
+  app:
+    build:
+      context: .
+      target: development
+    environment:
+      DB_HOST: db
+    volumes:
+      - .:/usr/src/app

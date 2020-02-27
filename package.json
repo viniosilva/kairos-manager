@@ -1,0 +1,39 @@
+{
+  "name": "kairos-manager",
+  "version": "1.0.0",
+  "description": "School schedule manager",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node $npm_package_main",
+    "dev": "nodemon $npm_package_main",
+    "test": "jest --color --detectOpenHandles --force-exit test/",
+    "test:unit": "jest --color --detectOpenHandles --force-exit test/unit/",
+    "test:integration": "jest --color --detectOpenHandles --force-exit test/integration/",
+    "test:e2e": "jest --color --detectOpenHandles --force-exit test/e2e/",
+    "test:coverage": "jest --coverage --coverageThreshold='{\"global\":{\"lines\":\"100\"}}' --color --detectOpenHandles --force-exit test/",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/viniosilva/kairos-manager.git"
+  },
+  "keywords": [
+    "school",
+    "schedule",
+    "manager"
+  ],
+  "author": "viniosilva",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/viniosilva/kairos-manager/issues"
+  },
+  "homepage": "https://github.com/viniosilva/kairos-manager#readme",
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "jest": "^25.2.7",
+    "nodemon": "^2.0.2"
+  }
+}
