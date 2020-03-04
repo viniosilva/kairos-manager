@@ -1,0 +1,13 @@
+const Sequelize = require('sequelize');
+const databaseConfig = require('../config/database');
+
+const env = process.env.ENV || 'development';
+const config = {
+  ...databaseConfig[env],
+  define: {
+    timestamps: false,
+    underscored: true,
+  },
+};
+
+module.exports = new Sequelize(config);
