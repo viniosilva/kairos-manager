@@ -1,5 +1,5 @@
 const assert = require('assert');
-const validateConnection = require('../../../src/database/validate-connection');
+const validateConnection = require('../../../src/database/validateConnection');
 
 context('Database', () => {
   describe('Validate connection', () => {

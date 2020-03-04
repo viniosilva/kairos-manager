@@ -19,14 +19,16 @@ context('Classroom Service', () => {
 
       assert.equal(classroomStub.called, true);
     });
-    it('should call updateClassroom when update classroom', async () => {
+    it('should call updateClassroom when update classroom throw a Error', async () => {
       classroomStub = sinon
         .stub(Classroom, 'updateClassroom')
-        .throws(new Error(''));
+        .throws(new Error('Test Error'));
 
-      await updateClassroom('', {});
-
-      assert.equal(classroomStub.called, true);
+      try {
+        await updateClassroom('', {});
+      } catch (_error) {
+        assert.equal(classroomStub.called, true);
+      }
     });
   });
 });

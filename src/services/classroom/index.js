@@ -1,8 +1,8 @@
-const createClassroom = require('./create-classroom');
-const findAllClassrooms = require('./find-all-classrooms');
-const findClassroomById = require('./find-classroom-by-id');
-const updateClassroom = require('./update-classroom');
-const destroyClassroom = require('./destroy-classroom');
+const createClassroom = require('./createClassroom');
+const findAllClassrooms = require('./findAllClassrooms');
+const findClassroomById = require('./findClassroomById');
+const updateClassroom = require('./updateClassroom');
+const destroyClassroom = require('./destroyClassroom');
 
 module.exports = {
   createClassroom,

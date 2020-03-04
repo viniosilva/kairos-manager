@@ -1,4 +1,4 @@
-const Classroom = require('./model');
+const Classroom = require('./Classroom');
 
 module.exports = async (id) => {
   const rows = await Classroom.destroy({ where: { id } });

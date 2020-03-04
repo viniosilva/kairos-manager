@@ -1,3 +1,3 @@
-const Classroom = require('./model');
+const Classroom = require('./Classroom');
 
 module.exports = (payload) => Classroom.create(payload);
