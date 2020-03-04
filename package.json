@@ -5,9 +5,9 @@
   "main": "src/index.js",
   "scripts": {
     "start": "node $npm_package_main",
-    "test": "mocha --recursive test/**/*.test.js --exit",
-    "test:unit": "mocha --recursive test/unit/**/*.test.js --exit",
-    "test:integration": "mocha --recursive test/integration/**/*.test.js --exit",
+    "test": "mocha --recursive test/ --exit",
+    "test:unit": "mocha --recursive test/unit/ --exit",
+    "test:integration": "mocha --recursive test/integration/ --exit",
     "coverage": "nyc npm test"
   },
   "repository": {

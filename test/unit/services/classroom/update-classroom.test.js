@@ -7,15 +7,23 @@ let classroomStub;
 
 context('Classroom Service', () => {
   describe('Update Classroom', () => {
-    beforeEach(() => {
-      classroomStub = sinon
-        .stub(Classroom, 'updateClassroom')
-        .resolves({});
-    });
     afterEach(() => {
       classroomStub.restore();
     });
     it('should call updateClassroom when update classroom', async () => {
+      classroomStub = sinon
+        .stub(Classroom, 'updateClassroom')
+        .resolves({});
+
+      await updateClassroom('', {});
+
+      assert.equal(classroomStub.called, true);
+    });
+    it('should call updateClassroom when update classroom', async () => {
+      classroomStub = sinon
+        .stub(Classroom, 'updateClassroom')
+        .throws(new Error(''));
+
       await updateClassroom('', {});
 
       assert.equal(classroomStub.called, true);
