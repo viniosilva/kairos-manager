@@ -1,3 +1,3 @@
-const Classroom = require('../../entities/classroom');
+const { findClassroomById } = require('../../entities/classroom');
 
-module.exports = (classroomId) => Classroom.findClassroomById(classroomId);
+module.exports = (classroomId) => findClassroomById(classroomId);

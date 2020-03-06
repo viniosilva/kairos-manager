@@ -1,3 +1,3 @@
-const Classroom = require('../../entities/classroom');
+const { updateClassroom } = require('../../entities/classroom');
 
-module.exports = (classroomId, payload) => Classroom.updateClassroom(classroomId, payload);
+module.exports = (classroomId, payload) => updateClassroom(classroomId, payload);
