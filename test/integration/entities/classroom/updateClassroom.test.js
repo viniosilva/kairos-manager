@@ -43,19 +43,5 @@ context('Classroom Entity', () => {
         assert.equal(error.message, 'Classroom not found');
       }
     });
-    it('should return error when classroom is not found', async () => {
-      try {
-        const classroomToUpdate = {
-          name: 'B',
-          grade: 2,
-          degree: 2,
-        };
-
-        await updateClassroom(1, classroomToUpdate);
-        throw new Error();
-      } catch (error) {
-        assert.equal(error.message, 'invalid input syntax for uuid: "1"');
-      }
-    });
   });
 });
