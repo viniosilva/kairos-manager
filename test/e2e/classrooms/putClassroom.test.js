@@ -63,4 +63,15 @@ describe('PUT /classrooms/:classroomId', () => {
 
     assert.equal(res.status, 400);
   });
+  it('with a invalid classroom should return an error', async () => {
+    const invalidClassroom = { name: 'A', grade: 1 };
+
+    const res = await request(app)
+      .put(`${path}/${classroomFixtureId}`)
+      .send(invalidClassroom)
+      .set('Accept', 'application/json')
+      .set('Content-Type', 'application/json');
+
+    assert.equal(res.body.message, '"degree" is required');
+  });
 });

@@ -5,7 +5,7 @@ const { formatClassroom } = require('../../../services/classroom');
 
 module.exports = async (req, _res, next) => {
   try {
-    req.payload = formatClassroom(req.body);
+    req.body = await formatClassroom(req.body);
     next();
   } catch (error) {
     if (error instanceof ValidateError) {
