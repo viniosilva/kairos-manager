@@ -1,7 +1,7 @@
 const assert = require('assert');
 const sinon = require('sinon');
 const { createClassroom } = require('../../../../src/services/classroom');
-const Classroom = require('../../../../src/entities/classroom');
+const { Classroom } = require('../../../../src/entities/classroom');
 
 let classroomStub;
 
@@ -9,7 +9,7 @@ context('Classroom Service', () => {
   describe('Create Classroom', () => {
     beforeEach(() => {
       classroomStub = sinon
-        .stub(Classroom, 'createClassroom')
+        .stub(Classroom, 'create')
         .resolves({});
     });
     afterEach(() => {

@@ -1,3 +1,3 @@
-const Classroom = require('../../entities/classroom');
+const { destroyClassroom } = require('../../entities/classroom');
 
-module.exports = (classroomId) => Classroom.destroyClassroom(classroomId);
+module.exports = (classroomId) => destroyClassroom(classroomId);
