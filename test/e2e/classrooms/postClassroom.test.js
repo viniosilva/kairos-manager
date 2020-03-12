@@ -1,6 +1,6 @@
 const assert = require('assert');
 const request = require('supertest');
-const app = require('../../../src/api/server');
+const { app } = require('../../../src/api/server');
 const { Classroom } = require('../../../src/entities/classroom');
 
 const path = '/classrooms';

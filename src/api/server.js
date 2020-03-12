@@ -23,4 +23,4 @@ exports.start = () => {
   });
 };
 
-module.exports = app;
+exports.app = app;
