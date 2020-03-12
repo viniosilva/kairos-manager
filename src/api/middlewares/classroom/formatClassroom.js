@@ -11,7 +11,7 @@ module.exports = async (req, _res, next) => {
     if (error instanceof ValidateError) {
       next(boom.badRequest(error.message));
     } else {
-      throw error;
+      next(error);
     }
   }
 };

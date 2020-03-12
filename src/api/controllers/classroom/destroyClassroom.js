@@ -11,7 +11,7 @@ module.exports = async (req, res, next) => {
     if (error instanceof NotFoundError) {
       next(boom.notFound(error.message));
     } else {
-      throw error;
+      next(error);
     }
   }
 };

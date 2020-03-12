@@ -2,6 +2,8 @@ const bodyParser = require('body-parser');
 const compression = require('compression');
 const express = require('express');
 const helmet = require('helmet');
+const morgan = require('morgan');
+const { logger } = require('./helpers');
 const errorHandler = require('./helpers/errorHandler');
 const routes = require('./routes');
 
@@ -12,6 +14,7 @@ const app = express()
   .use(compression())
   .use(bodyParser.urlencoded({ extended: false }))
   .use(bodyParser.json())
+  .use(morgan('combined'))
   .use(routes)
   .use(errorHandler);
 
@@ -19,7 +22,7 @@ exports.start = () => {
   // istanbul ignore next
   app.listen(port, () => {
     // eslint-disable-next-line no-console
-    console.log(`App listening on port ${port}!`);
+    logger.debug(`App listening on port ${port}!`);
   });
 };
 
