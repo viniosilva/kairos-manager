@@ -1,6 +1,7 @@
 {
   "name": "kairos-manager",
   "version": "0.1.0",
+  "title": "Kairos Manager",
   "description": "Schedule school manager",
   "main": "src/index.js",
   "scripts": {
@@ -23,8 +24,9 @@
     "school",
     "manager"
   ],
-  "author": "Vinícius de Oliveira Silva <oliveiravinicius92@gmail.com>",
-  "license": "ISC",
+  "author": "Vinícius de Oliveira Silva",
+  "contact": "oliveiravinicius92@gmail.com",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/viniosilva/kairos-manager/issues"
   },
@@ -41,6 +43,8 @@
     "pg-hstore": "^2.3.3",
     "sequelize": "^5.21.5",
     "sequelize-cli": "^5.5.1",
+    "swagger-jsdoc": "^3.5.0",
+    "swagger-ui-express": "^4.1.3",
     "winston": "^3.2.1"
   },
   "devDependencies": {
