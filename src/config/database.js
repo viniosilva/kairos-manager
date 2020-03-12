@@ -1,9 +1,9 @@
 const defaultConfig = {
-  host: 'localhost',
-  port: 5432,
-  database: 'kairos_manager',
-  username: 'kairos',
-  password: 'kairos_manager',
+  host: process.env.DB_HOST || 'localhost',
+  port: process.env.DB_PORT || 5432,
+  database: process.env.DB_NAME || 'kairos_manager',
+  username: process.env.DB_USERNAME || 'kairos',
+  password: process.env.DB_PASSWORD || 'kairos_manager',
   dialect: 'postgres',
   pool: {
     max: 2,

@@ -1,6 +1,6 @@
 const assert = require('assert');
 const request = require('supertest');
-const app = require('../../../src/api/server');
+const { app } = require('../../../src/api/server');
 const { Classroom, createClassroom } = require('../../../src/entities/classroom');
 
 const path = '/classrooms';
@@ -62,5 +62,16 @@ describe('PUT /classrooms/:classroomId', () => {
       .set('Content-Type', 'application/json');
 
     assert.equal(res.status, 400);
+  });
+  it('with a invalid classroom should return an error', async () => {
+    const invalidClassroom = { name: 'A', grade: 1 };
+
+    const res = await request(app)
+      .put(`${path}/${classroomFixtureId}`)
+      .send(invalidClassroom)
+      .set('Accept', 'application/json')
+      .set('Content-Type', 'application/json');
+
+    assert.equal(res.body.message, '"degree" is required');
   });
 });

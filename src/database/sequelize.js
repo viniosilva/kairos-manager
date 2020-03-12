@@ -8,6 +8,7 @@ const config = {
     timestamps: false,
     underscored: true,
   },
+  logging: false,
 };
 
 module.exports = new Sequelize(config);
