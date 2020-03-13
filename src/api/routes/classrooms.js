@@ -11,6 +11,14 @@ const {
   validateClassroomId,
 } = require('../middlewares/classroom');
 
+/**
+ * @swagger
+ *
+ * tags:
+ * - name: "classrooms"
+ *   description: "Everything about school classrooms"
+ */
+
 module.exports = express.Router()
   .post('/', [formatClassroom], createClassroom)
   .delete('/:classroomId', [validateClassroomId], destroyClassroom)

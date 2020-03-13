@@ -1,15 +1,19 @@
-version: "3"
+version: "3.7"
 
 services:
 
   app:
-    image: viniosilva/kairos-manager:dev
+    build:
+      context: .
+      target: development
     environment:
       DB_HOST: db
     volumes:
       - ./src:/usr/src/app/src
     ports:
       - 3000:3000
+    depends_on:
+      - db
 
   db:
     image: postgres:12.2-alpine

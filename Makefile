@@ -13,8 +13,5 @@ docker/db/down:
 docker/db/migrate:
 	npx sequelize-cli --config src/config/database.js --migrations-path src/database/migrations db:migrate
 
-docker/build/development:
-	docker build --target development -t viniosilva/kairos-manager:dev .
-
 docker/build/production:
 	docker build --target production -t viniosilva/kairos-manager:latest .

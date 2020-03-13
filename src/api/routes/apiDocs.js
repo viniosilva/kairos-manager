@@ -1,6 +1,8 @@
 const express = require('express');
-const swaggerUi = require('swagger-ui-express');
 const swaggerJSDoc = require('swagger-jsdoc');
+const swaggerUi = require('swagger-ui-express');
+const databaseConfig = require('../../config/database');
+
 const {
   contact,
   description,
@@ -9,10 +11,16 @@ const {
   version,
 } = require('../../../package.json');
 
+const env = process.env.ENV || 'development';
+const { host } = databaseConfig[env];
+const port = process.env.PORT || 3000;
+
 const options = {
   definition: {
     info: {
-      contact,
+      contact: {
+        email: contact,
+      },
       description,
       title,
       version,
@@ -21,13 +29,14 @@ const options = {
         url: './LICENSE',
       },
     },
-    host: 'kairosmanager.com.br',
+    host: `${host}:${port}`,
+    basePath: '/',
     schemes: [
       'http',
       'https',
     ],
   },
-  apis: ['./routes.js'],
+  apis: ['./src/api/**/*.js'],
 };
 
 const swaggerSpec = swaggerJSDoc(options);

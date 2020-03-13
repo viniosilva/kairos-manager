@@ -11,5 +11,5 @@ CMD [ "npm", "run", "dev" ]
 
 FROM builder AS production
 RUN npm ci --only production
-COPY src/ .
+COPY src/ ./src/
 CMD [ "npm", "start" ]
