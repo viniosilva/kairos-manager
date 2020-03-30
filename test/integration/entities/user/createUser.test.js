@@ -2,8 +2,8 @@ const { User, createUser } = require('../../../../src/entities/user');
 const { ValidationError } = require('../../../../src/common/errors');
 
 const userFixture = {
-  email: 'fulanodetal@test.com',
-  password: '123',
+  email: 'test@test.com',
+  password: '123456',
 };
 
 describe('User Entity', () => {
@@ -11,6 +11,7 @@ describe('User Entity', () => {
     afterEach(async () => {
       await User.destroy({ where: {} });
     });
+
     it('should return the created user when create a user', async () => {
       const newUser = await createUser(userFixture);
 
