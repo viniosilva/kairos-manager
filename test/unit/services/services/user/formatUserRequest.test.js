@@ -2,7 +2,7 @@ const { formatUserRequest } = require('../../../../../src/services/user');
 const { ValidationError } = require('../../../../../src/common/errors');
 
 const userFixture = {
-  email: 'fulanodetal@test.com',
+  email: 'test@test.com',
   password: '123456',
 };
 
