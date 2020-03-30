@@ -1,6 +1,7 @@
 {
   "name": "kairos-manager",
   "version": "1.0.0",
+  "title": "Kairos Manager",
   "description": "School schedule manager",
   "main": "src/index.js",
   "scripts": {
@@ -24,6 +25,7 @@
     "manager"
   ],
   "author": "viniosilva",
+  "contact": "oliveiravinicius92@gmail.com",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/viniosilva/kairos-manager/issues"
@@ -49,6 +51,8 @@
     "pg-hstore": "^2.3.3",
     "sequelize": "^5.21.5",
     "sequelize-cli": "^5.5.1",
+    "swagger-jsdoc": "^4.0.0",
+    "swagger-ui-express": "^4.1.4",
     "winston": "^3.2.1"
   }
 }
