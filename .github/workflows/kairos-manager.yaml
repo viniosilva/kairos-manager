@@ -34,7 +34,7 @@ jobs:
       run: npm ci
 
     - name: Lint
-      run: make lint
+      run: npm test
 
     - name: Tests
-      run: make test
+      run: npm run lint
