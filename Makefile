@@ -12,6 +12,12 @@ docker/db/up:
 docker/db/down:
 	docker-compose down --remove-orphans db adminer
 
+docker/db/migrate: docker/db/up
+	npx sequelize-cli --config src/config/database.js --migrations-path src/database/migrations db:migrate
+
+docker/db/seed: docker/db/up
+	npx sequelize-cli --config src/config/database.js --seeders-path src/database/seeds db:seed:all
+
 install:
 	npm install
 
