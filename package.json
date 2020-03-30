@@ -5,6 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "start": "node $npm_package_main",
+    "dev": "nodemon $npm_package_main",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/viniosilva/kairos-manager/issues"
   },
-  "homepage": "https://github.com/viniosilva/kairos-manager#readme"
+  "homepage": "https://github.com/viniosilva/kairos-manager#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
 }
