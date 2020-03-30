@@ -15,14 +15,6 @@ describe('API', () => {
       nextMock.mockClear();
     });
 
-    it('should return status It\'s all OK', async () => {
-      authenticateMock.mockReturnValue(true);
-
-      await getStatus(reqMock, resMock);
-
-      expect(resMock.body.status).toEqual('It\'s all OK');
-    });
-
     it('should throw a error with next', async () => {
       authenticateMock.mockRejectedValue(new Error('TEST'));
 

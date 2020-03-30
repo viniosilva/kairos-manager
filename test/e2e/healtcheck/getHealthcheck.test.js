@@ -4,7 +4,7 @@ const { app } = require('../../../src/api/server');
 const path = '/healthcheck';
 
 describe('API', () => {
-  describe('GET Healthcheck', () => {
+  describe('GET /healthcheck', () => {
     it('should return status 200', async () => {
       const res = await request(app).get(path);
 
