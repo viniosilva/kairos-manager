@@ -25,12 +25,21 @@ describe('User Entity', () => {
       }
     });
 
-    it('should throw a error with a duplicated user', async () => {
+    it('should throw a validation error when try create a duplicated user email', async () => {
       try {
         await createUser(userFixture);
         await createUser(userFixture);
       } catch (error) {
         expect(error instanceof ValidationError).toEqual(true);
+      }
+    });
+
+    it('should return a error message when try create a duplicated user email', async () => {
+      try {
+        await createUser(userFixture);
+        await createUser(userFixture);
+      } catch (error) {
+        expect(error.message).toEqual('email must be unique');
       }
     });
   });

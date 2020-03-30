@@ -2,6 +2,9 @@ jest.mock('../../../../src/entities/user/createUser');
 
 const { createUser } = require('../../../../src/services/user');
 const { createUser: createUserMock } = require('../../../../src/entities/user');
+const sequelize = require('../../../../src/database/sequelize');
+
+const { ValidationError } = sequelize.Sequelize;
 
 describe('User Service', () => {
   describe('Create User', () => {
