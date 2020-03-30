@@ -3,8 +3,7 @@ const compression = require('compression');
 const express = require('express');
 const helmet = require('helmet');
 const morgan = require('morgan');
-const { logger } = require('./helpers');
-const errorHandler = require('./helpers/errorHandler');
+const { errorHandler, logger } = require('./helpers');
 const routes = require('./routes');
 
 const port = process.env.PORT || 3000;

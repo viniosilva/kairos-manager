@@ -2,26 +2,23 @@ jest.mock('../../../../../src/database/sequelize');
 
 const { getStatus } = require('../../../../../src/api/controllers/healthcheck');
 const { authenticate: authenticateMock } = require('../../../../../src/database/sequelize');
+const { req: reqMock, res, next: nextMock } = require('../../expressMocks');
 
-const resMock = {
-  body: '',
-  json(body) {
-    this.body = body;
-  },
-};
-
-const nextMock = jest.fn();
+let resMock;
 
 describe('API', () => {
   describe('Get Status', () => {
     beforeEach(() => {
       authenticateMock.mockClear();
+      reqMock.mockClear();
+      resMock = res();
+      nextMock.mockClear();
     });
 
     it('should return status It\'s all OK', async () => {
       authenticateMock.mockReturnValue(true);
 
-      await getStatus(null, resMock);
+      await getStatus(reqMock, resMock);
 
       expect(resMock.body.status).toEqual('It\'s all OK');
     });
@@ -29,7 +26,7 @@ describe('API', () => {
     it('should throw a error with next', async () => {
       authenticateMock.mockRejectedValue(new Error('TEST'));
 
-      await getStatus(null, resMock, nextMock);
+      await getStatus(reqMock, resMock, nextMock);
 
       expect(nextMock).toHaveBeenCalledTimes(1);
     });
