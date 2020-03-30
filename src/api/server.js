@@ -5,6 +5,7 @@ const helmet = require('helmet');
 const morgan = require('morgan');
 const { logger } = require('./helpers');
 const errorHandler = require('./helpers/errorHandler');
+const routes = require('./routes');
 
 const port = process.env.PORT || 3000;
 const app = express()
@@ -13,6 +14,7 @@ const app = express()
   .use(bodyParser.urlencoded({ extended: false }))
   .use(bodyParser.json())
   .use(morgan('combined'))
+  .use(routes)
   .use(errorHandler);
 
 exports.start = () => {
