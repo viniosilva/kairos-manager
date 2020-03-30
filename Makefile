@@ -22,7 +22,7 @@ install:
 	npm install
 
 .PHONY: test
-test: docker/db/up
+test: docker/db/migrate
 	npm test
 
 .PHONY: test/unit
@@ -30,15 +30,15 @@ test/unit:
 	npm run test:unit
 
 .PHONY: test/integration
-test/integration: docker/db/up
+test/integration: docker/db/migrate
 	npm run test:integration
 
 .PHONY: test/e2e
-test/e2e: docker/db/up
+test/e2e: docker/db/migrate
 	npm run test:e2e
 
 .PHONY: coverage
-coverage: docker/db/up
+coverage: docker/db/migrate
 	npm run coverage
 
 lint:
@@ -47,8 +47,8 @@ lint:
 lint/fix:
 	npm run lint:fix
 
-start: docker/db/up
+start: docker/db/migrate
 	npm start
 
-start/dev: docker/db/up
+start/dev: docker/db/migrate
 	npm run dev
