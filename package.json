@@ -35,5 +35,10 @@
     "eslint-plugin-import": "^2.20.2",
     "jest": "^25.2.7",
     "nodemon": "^2.0.2"
+  },
+  "dependencies": {
+    "pg": "^8.0.0",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^5.21.6"
   }
 }

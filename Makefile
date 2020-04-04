@@ -4,15 +4,23 @@ docker/build:
 
 docker/up:
 	docker-compose up --build -d
+	sleep 1
 
 docker/down:
 	docker-compose down --remove-orphans
+
+docker/db/up:
+	docker-compose up --build -d db adminer
+	sleep 1
+
+docker/db/down:
+	docker-compose down --remove-orphans db adminer
 
 install:
 	npm install
 
 .PHONY: test
-test:
+test: docker/db/up
 	npm test
 
 .PHONY: test/unit
@@ -20,15 +28,15 @@ test/unit:
 	npm run test:unit
 
 .PHONY: test/integration
-test/integration:
+test/integration: docker/db/up
 	npm run test:integration
 
 .PHONY: test/e2e
-test/e2e:
+test/e2e: docker/db/up
 	npm run test:e2e
 
 .PHONY: test/coverage
-test/coverage:
+test/coverage: docker/db/up
 	npm run test:coverage
 
 lint:
