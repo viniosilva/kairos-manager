@@ -12,7 +12,8 @@
     "test:e2e": "jest --color --detectOpenHandles --force-exit test/e2e/",
     "test:coverage": "jest --coverage --coverageThreshold='{\"global\":{\"lines\":\"100\"}}' --color --detectOpenHandles --force-exit test/",
     "lint": "eslint .",
-    "lint:fix": "eslint --fix ."
+    "lint:fix": "eslint --fix .",
+    "db:migrate": "sequelize-cli --config src/config/database.js --migrations-path src/database/migrations db:migrate"
   },
   "repository": {
     "type": "git",
@@ -37,8 +38,10 @@
     "nodemon": "^2.0.2"
   },
   "dependencies": {
+    "@hapi/joi": "^17.1.1",
     "pg": "^8.0.0",
     "pg-hstore": "^2.3.3",
-    "sequelize": "^5.21.6"
+    "sequelize": "^5.21.6",
+    "sequelize-cli": "^5.5.1"
   }
 }

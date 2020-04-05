@@ -4,7 +4,6 @@ on: push
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
@@ -19,22 +18,25 @@ jobs:
           POSTGRES_PASSWORD: manager
           POSTGRES_DB: kairos_manager
         ports:
-        - 5432:5432
+          - 5432:5432
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-      env:
-        CI: true
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+        env:
+          CI: true
 
-    - name: Install
-      run: npm ci
+      - name: Install
+        run: npm ci
 
-    - name: Lint
-      run: npm run lint
+      - name: Lint
+        run: npm run lint
 
-    - name: Tests and Coverage
-      run: npm run test:coverage
+      - name: Migrations
+        run: npm run db:migrate
+
+      - name: Tests and Coverage
+        run: npm run test:coverage
