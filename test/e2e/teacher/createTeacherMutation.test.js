@@ -1,21 +1,14 @@
-const request = require('supertest');
-const { app } = require('../../../src/api/server');
 const { Teacher } = require('../../../src/entities/teacher');
+const requestGraphQL = require('../requestGraphQL');
 
-const path = '/graphql';
-
-describe('Create Teacher', () => {
+describe('Create Teacher Mutation', () => {
   afterEach(async () => {
     await Teacher.destroy({ where: {} });
   });
 
   it('should return the created teacher', async () => {
-    const res = await request(app)
-      .post(path)
-      .set('Content-Type', 'application/json')
-      .set('Accept', 'application/json')
-      .send({
-        query: `mutation {
+    const res = await requestGraphQL().send({
+      query: `mutation {
         createTeacher(input: {
           fullName: "Test",
           document: "999999999"
@@ -25,7 +18,7 @@ describe('Create Teacher', () => {
           document
         }
       }`,
-      });
+    });
 
     expect(res.body.data.createTeacher.id).toBeDefined();
   });

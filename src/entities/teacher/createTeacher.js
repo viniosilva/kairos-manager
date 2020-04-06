@@ -1,6 +1,6 @@
 const { getSequelizeErrors, isUniqueConstraintError } = require('../../database/common');
-const Teacher = require('./Teacher');
 const { ConflictError } = require('../../common/errors');
+const Teacher = require('./Teacher');
 
 module.exports = async (payload) => {
   try {

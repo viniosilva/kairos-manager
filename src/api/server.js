@@ -2,7 +2,7 @@ const express = require('express');
 const helmet = require('helmet');
 const graphqlHTTP = require('express-graphql');
 const healthcheck = require('./healthcheck');
-const root = require('./root');
+const resolvers = require('./resolvers');
 const schema = require('./schema');
 
 const port = process.env.PORT || 4000;
@@ -11,7 +11,7 @@ const app = express()
   .get('/healthcheck', healthcheck)
   .use('/graphql', graphqlHTTP({
     schema,
-    rootValue: root,
+    rootValue: resolvers,
     graphiql: true,
   }));
 

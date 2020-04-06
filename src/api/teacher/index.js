@@ -1,20 +1,12 @@
-const { createTeacher } = require('../../services/teacher');
-const teacherInput = require('./teacherInput');
-const teacherType = require('./teacherType');
+const mutations = require('./mutations');
+const resolvers = require('./resolvers');
+const schemas = require('./schemas');
+const queries = require('./queries');
 
-exports.teacherSchemas = [
-  teacherInput,
-  teacherType,
-].join('');
+exports.teacherMutations = mutations;
 
-exports.teacherQueries = `
-  teacher(id: ID!): Teacher!
-`;
+exports.teacherResolvers = { ...resolvers };
 
-exports.teacherMutations = `
-  createTeacher(input: TeacherInput): Teacher!
-`;
+exports.teacherSchemas = schemas;
 
-exports.teacherRoot = {
-  createTeacher: ({ input }) => createTeacher(input),
-};
+exports.teacherQueries = queries;
