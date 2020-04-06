@@ -48,8 +48,8 @@ lint:
 lint/fix:
 	npm run lint:fix
 
-start:
+start: docker/db/migrate
 	npm start
 
-start/dev:
+start/dev: docker/db/migrate
 	npm run dev

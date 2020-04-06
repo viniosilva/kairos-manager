@@ -6,6 +6,8 @@ services:
     build:
       context: .
       target: development
+    ports:
+      - 4000:4000
     environment:
       DB_HOST: db
     volumes:
