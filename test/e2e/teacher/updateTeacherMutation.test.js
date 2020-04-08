@@ -6,37 +6,50 @@ const teacherFixture = {
   document: '0000000000',
 };
 
-describe('Create Teacher Mutation', () => {
+describe('Update Teacher Mutation', () => {
   afterEach(async () => {
     await Teacher.destroy({ where: {} });
   });
 
-  it('should return the created teacher', async () => {
+  it('should return the updated teacher', async () => {
+    const { id: teacherId } = await Teacher.create(teacherFixture);
+
     const res = await requestGraphQL().send({
       query: `mutation {
-        createTeacher(input: {
+        updateTeacher(id: "${teacherId}", input: {
           fullName: "Test",
           document: "999999999"
         }) {
-          id
-          fullName
           document
         }
       }`,
     });
 
-    expect(res.body.data.createTeacher.id).toBeDefined();
+    expect(res.body.data.updateTeacher.document).toEqual('999999999');
+  });
+
+  it('should return not found error', async () => {
+    const res = await requestGraphQL().send({
+      query: `mutation {
+        updateTeacher(id: "3fa85f64-5717-4562-b3fc-2c963f66afa6", input: {
+          fullName: "Test",
+          document: "999999999"
+        }) {
+          document
+        }
+      }`,
+    });
+
+    expect(res.body.errors[0].message).toEqual('Teacher not found');
   });
 
   it('should return invalid payload error', async () => {
     const res = await requestGraphQL().send({
       query: `mutation {
-        createTeacher(input: {
+        updateTeacher(id: "3fa85f64-5717-4562-b3fc-2c963f66afa6", input: {
           fullName: "Test",
-          document: "000000000000000"
+          document: "9999999999999999999"
         }) {
-          id
-          fullName
           document
         }
       }`,
@@ -46,16 +59,15 @@ describe('Create Teacher Mutation', () => {
   });
 
   it('should return conflict error', async () => {
-    await Teacher.create(teacherFixture);
+    await Teacher.create({ fullName: 'Test', document: '1111111111' });
+    const { id: teacherId } = await Teacher.create(teacherFixture);
 
     const res = await requestGraphQL().send({
       query: `mutation {
-        createTeacher(input: {
-          fullName: "Test2",
-          document: "0000000000"
+        updateTeacher(id: "${teacherId}", input: {
+          fullName: "Test",
+          document: "1111111111"
         }) {
-          id
-          fullName
           document
         }
       }`,

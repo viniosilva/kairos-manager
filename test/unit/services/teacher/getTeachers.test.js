@@ -1,20 +1,20 @@
-jest.mock('../../../../src/entities/teacher/getTeachers');
-
 const { getTeachers } = require('../../../../src/services/teacher');
 const { getTeachers: getTeachersMock } = require('../../../../src/entities/teacher');
 
+jest.mock('../../../../src/entities/teacher/getTeachers');
+
 const teachersFixture = [{
-  fullName: 'Fulano de Tal',
-  document: '23615770030',
+  fullName: 'Test1',
+  document: '11111111111',
 }, {
-  fullName: 'Tal de Fulano',
-  document: '99384567332',
+  fullName: 'Test2',
+  document: '22222222222',
 }, {
-  fullName: 'Tal de Ciclano',
-  document: '32145678843',
+  fullName: 'Test3',
+  document: '33333333333',
 }, {
-  fullName: 'Ciclano de Tal',
-  document: '123468784332',
+  fullName: 'Test4',
+  document: '44444444444',
 }];
 
 describe('Teacher Service', () => {

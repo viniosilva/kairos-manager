@@ -2,8 +2,8 @@ const { ValidationError } = require('../../../../src/common/errors');
 const formatTeacherRequest = require('../../../../src/services/teacher/formatTeacherRequest');
 
 const teacherFixture = {
-  fullName: 'Fulano de Tal',
-  document: '23615770030',
+  fullName: 'Test',
+  document: '0000000000',
 };
 
 describe('Teacher Service', () => {

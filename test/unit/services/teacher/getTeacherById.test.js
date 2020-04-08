@@ -1,12 +1,12 @@
-jest.mock('../../../../src/entities/teacher/getTeacherById');
-
 const { getTeacherById } = require('../../../../src/services/teacher');
 const { getTeacherById: getTeacherByIdMock } = require('../../../../src/entities/teacher');
 const { NotFoundError, ValidationError } = require('../../../../src/common/errors');
 
+jest.mock('../../../../src/entities/teacher/getTeacherById');
+
 const teacherFixture = {
-  fullName: 'Fulano de Tal',
-  document: '23615770030',
+  fullName: 'Test',
+  document: '0000000000',
 };
 
 describe('Teacher Service', () => {
@@ -20,7 +20,7 @@ describe('Teacher Service', () => {
 
       const teacher = await getTeacherById('3fa85f64-5717-4562-b3fc-2c963f66afa6');
 
-      expect(teacher.document).toEqual('23615770030');
+      expect(teacher.document).toEqual('0000000000');
     });
 
     it('should throw validation error', async () => {

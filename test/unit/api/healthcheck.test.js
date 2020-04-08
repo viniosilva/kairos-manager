@@ -1,7 +1,7 @@
-jest.mock('../../../src/database/sequelize');
-
 const healthcheck = require('../../../src/api/healthcheck');
 const { authenticate: authenticateMock } = require('../../../src/database/sequelize');
+
+jest.mock('../../../src/database/sequelize');
 
 const resMock = {
   statusCode: 200,

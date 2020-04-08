@@ -1,17 +1,17 @@
 const { Teacher, getTeachers } = require('../../../../src/entities/teacher');
 
 const teachersFixture = [{
-  fullName: 'Fulano de Tal',
-  document: '23615770030',
+  fullName: 'Test1',
+  document: '11111111111',
 }, {
-  fullName: 'Tal de Fulano',
-  document: '99384567332',
+  fullName: 'Test2',
+  document: '22222222222',
 }, {
-  fullName: 'Tal de Ciclano',
-  document: '32145678843',
+  fullName: 'Test3',
+  document: '33333333333',
 }, {
-  fullName: 'Ciclano de Tal',
-  document: '123468784332',
+  fullName: 'Test4',
+  document: '44444444444',
 }];
 
 describe('Teacher Entity', () => {
@@ -19,6 +19,7 @@ describe('Teacher Entity', () => {
     afterEach(async () => {
       await Teacher.destroy({ where: {} });
     });
+
     it('should return teacher list', async () => {
       await Promise.all(teachersFixture.map((fixture) => Teacher.create(fixture)));
 
@@ -50,7 +51,7 @@ describe('Teacher Entity', () => {
       const offset = 1;
       const teachers = await getTeachers(limit, offset);
 
-      expect(teachers[0].document).toEqual('99384567332');
+      expect(teachers[0].document).toEqual('22222222222');
     });
 
     it('should throw an error', async () => {

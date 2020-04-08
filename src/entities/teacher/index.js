@@ -3,6 +3,7 @@ const teacherSchema = require('./teacherSchema');
 const createTeacher = require('./createTeacher');
 const getTeacherById = require('./getTeacherById');
 const getTeachers = require('./getTeachers');
+const updateTeacher = require('./updateTeacher');
 
 module.exports = {
   Teacher,
@@ -10,4 +11,5 @@ module.exports = {
   createTeacher,
   getTeacherById,
   getTeachers,
+  updateTeacher,
 };

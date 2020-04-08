@@ -2,8 +2,8 @@ const { Teacher, createTeacher } = require('../../../../src/entities/teacher');
 const { ConflictError } = require('../../../../src/common/errors');
 
 const teacherFixture = {
-  fullName: 'Fulano de Tal',
-  document: '23615770030',
+  fullName: 'Test',
+  document: '0000000000',
 };
 
 describe('Teacher Entity', () => {
@@ -11,6 +11,7 @@ describe('Teacher Entity', () => {
     afterEach(async () => {
       await Teacher.destroy({ where: {} });
     });
+
     it('should return the created teacher when is a valid payload', async () => {
       const newTeacher = await createTeacher(teacherFixture);
 

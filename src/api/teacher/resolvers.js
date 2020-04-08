@@ -1,7 +1,14 @@
-const { createTeacher, getTeacherById, getTeachers } = require('../../services/teacher');
+const {
+  createTeacher,
+  getTeacherById,
+  getTeachers,
+  updateTeacher,
+} = require('../../services/teacher');
 
 exports.createTeacher = ({ input }) => createTeacher(input);
 
 exports.teacher = ({ id }) => getTeacherById(id);
 
 exports.teachersList = ({ page, pageSize }) => getTeachers(page, pageSize);
+
+exports.updateTeacher = ({ id, input }) => updateTeacher(id, input);

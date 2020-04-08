@@ -1,9 +1,9 @@
 const { Teacher } = require('../../../src/entities/teacher');
 const requestGraphQL = require('../requestGraphQL');
 
-const teachersFixture = {
-  fullName: 'Fulano de Tal',
-  document: '23615770030',
+const teacherFixture = {
+  fullName: 'Test',
+  document: '0000000000',
 };
 
 describe('Teacher Query', () => {
@@ -12,7 +12,7 @@ describe('Teacher Query', () => {
   });
 
   it('should return teacher', async () => {
-    const { id: teacherId } = await Teacher.create(teachersFixture);
+    const { id: teacherId } = await Teacher.create(teacherFixture);
 
     const res = await requestGraphQL().send({
       query: `{
@@ -22,7 +22,7 @@ describe('Teacher Query', () => {
       }`,
     });
 
-    expect(res.body.data.teacher.fullName).toEqual('Fulano de Tal');
+    expect(res.body.data.teacher.fullName).toEqual('Test');
   });
 
   it('should return notFoundError', async () => {

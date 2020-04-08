@@ -2,8 +2,8 @@ const { Teacher, getTeacherById } = require('../../../../src/entities/teacher');
 const { NotFoundError } = require('../../../../src/common/errors');
 
 const teacherFixture = {
-  fullName: 'Fulano de Tal',
-  document: '23615770030',
+  fullName: 'Test',
+  document: '0000000000',
 };
 
 describe('Teacher Entity', () => {
@@ -11,12 +11,13 @@ describe('Teacher Entity', () => {
     afterEach(async () => {
       await Teacher.destroy({ where: {} });
     });
-    it('should return teacher when a valid id', async () => {
+
+    it('should return teacher when is id exists', async () => {
       const { id: teacherId } = await Teacher.create(teacherFixture);
 
       const teacher = await getTeacherById(teacherId);
 
-      expect(teacher.document).toEqual('23615770030');
+      expect(teacher.document).toEqual('0000000000');
     });
 
     it('should throw not found error when id not exists', async () => {

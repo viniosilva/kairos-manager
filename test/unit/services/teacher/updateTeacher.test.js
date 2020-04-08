@@ -1,7 +1,7 @@
-const { createTeacher } = require('../../../../src/services/teacher');
-const { createTeacher: createTeacherMock } = require('../../../../src/entities/teacher');
+const { updateTeacher } = require('../../../../src/services/teacher');
+const { updateTeacher: updateTeacherMock } = require('../../../../src/entities/teacher');
 
-jest.mock('../../../../src/entities/teacher/createTeacher');
+jest.mock('../../../../src/entities/teacher/updateTeacher');
 
 const teacherFixture = {
   fullName: 'Test',
@@ -9,18 +9,18 @@ const teacherFixture = {
 };
 
 describe('Teacher Service', () => {
-  describe('Create Teacher', () => {
+  describe('Update Teacher', () => {
     beforeEach(() => {
-      createTeacherMock.mockClear();
+      updateTeacherMock.mockClear();
     });
     it('should create a teacher when is a valid payload', async () => {
-      createTeacherMock.mockReturnValueOnce({
+      updateTeacherMock.mockReturnValueOnce({
         id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
         fullName: 'Test',
         document: '0000000000',
       });
 
-      const teacher = await createTeacher(teacherFixture);
+      const teacher = await updateTeacher(teacherFixture);
 
       expect(teacher.id).toEqual('3fa85f64-5717-4562-b3fc-2c963f66afa6');
     });
