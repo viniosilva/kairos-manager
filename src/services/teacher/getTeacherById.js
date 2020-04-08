@@ -1,6 +1,6 @@
 const formatTeacherResponse = require('./formatTeacherResponse');
-const { getTeacherById } = require('../../entities/teacher');
 const { validateUuid } = require('../common');
+const { getTeacherById } = require('../../entities/teacher');
 
 module.exports = async (teacherId) => {
   validateUuid(teacherId);

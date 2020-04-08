@@ -20,7 +20,7 @@ describe('Teacher Service', () => {
         document: '0000000000',
       });
 
-      const teacher = await updateTeacher(teacherFixture);
+      const teacher = await updateTeacher('3fa85f64-5717-4562-b3fc-2c963f66afa6', teacherFixture);
 
       expect(teacher.id).toEqual('3fa85f64-5717-4562-b3fc-2c963f66afa6');
     });
