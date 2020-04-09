@@ -1,5 +1,5 @@
-const { getSequelizeErrors, isUniqueConstraintError } = require('../../database/common');
-const { ConflictError, NotFoundError } = require('../../common/errors');
+const { getSequelizeErrors } = require('../../database/common');
+const { NotFoundError } = require('../../common/errors');
 const Classroom = require('./Classroom');
 
 module.exports = async (classroomId, payload) => {
@@ -15,10 +15,6 @@ module.exports = async (classroomId, payload) => {
     [affectedRows, classrooms] = await Classroom.update(payload, options);
   } catch (error) {
     const messageError = getSequelizeErrors(error);
-
-    if (isUniqueConstraintError(error)) {
-      throw new ConflictError(messageError);
-    }
 
     throw new Error(messageError);
   }
