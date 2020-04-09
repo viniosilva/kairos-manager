@@ -13,6 +13,7 @@ describe('Teacher Service', () => {
     beforeEach(() => {
       createTeacherMock.mockClear();
     });
+
     it('should create a teacher when is a valid payload', async () => {
       createTeacherMock.mockReturnValueOnce({
         id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',

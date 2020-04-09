@@ -13,6 +13,7 @@ describe('Teacher Service', () => {
 
       expect(formatedTeacher).toBeDefined();
     });
+
     it('should return a ValidationError when send a invalid payload', async () => {
       try {
         await formatTeacherRequest({});

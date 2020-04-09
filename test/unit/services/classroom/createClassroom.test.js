@@ -14,6 +14,7 @@ describe('Classroom Service', () => {
     beforeEach(() => {
       createClassroomMock.mockClear();
     });
+
     it('should create a classroom when is a valid payload', async () => {
       createClassroomMock.mockReturnValueOnce({
         id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',

@@ -25,10 +25,8 @@ describe('Destroy Teacher Mutation', () => {
 
   it('should return notFoundError', async () => {
     const res = await requestGraphQL().send({
-      query: `{
-        teacher(id: "3fa85f64-5717-4562-b3fc-2c963f66afa6") {
-          fullName
-        }
+      query: `mutation {
+        destroyTeacher(id: "3fa85f64-5717-4562-b3fc-2c963f66afa6")
       }`,
     });
 

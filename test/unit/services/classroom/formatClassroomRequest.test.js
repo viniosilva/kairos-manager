@@ -14,6 +14,7 @@ describe('Classroom Service', () => {
 
       expect(formatedClassroom).toBeDefined();
     });
+
     it('should return a ValidationError when send a invalid payload', async () => {
       try {
         await formatClassroomRequest({});
