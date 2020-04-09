@@ -3,6 +3,7 @@ const classroomSchema = require('./classroomSchema');
 const createClassroom = require('./createClassroom');
 const getClassroomById = require('./getClassroomById');
 const getClassrooms = require('./getClassrooms');
+const updateClassroom = require('./updateClassroom');
 
 module.exports = {
   Classroom,
@@ -10,4 +11,5 @@ module.exports = {
   createClassroom,
   getClassroomById,
   getClassrooms,
+  updateClassroom,
 };
