@@ -1,5 +1,5 @@
 const { Classroom, updateClassroom } = require('../../../../src/entities/classroom');
-const { ConflictError, NotFoundError } = require('../../../../src/common/errors');
+const { NotFoundError } = require('../../../../src/common/errors');
 
 const classroomFixture = {
   name: 'A',

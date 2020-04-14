@@ -4,9 +4,9 @@ const { updateClassroom: updateClassroomMock } = require('../../../../src/entiti
 jest.mock('../../../../src/entities/classroom/updateClassroom');
 
 const classroomFixture = {
-  name: 'B',
+  name: 'A',
   degree: 1,
-  grade: 2,
+  grade: 1,
 };
 
 describe('Classroom Service', () => {
