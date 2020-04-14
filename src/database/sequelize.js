@@ -1,8 +1,8 @@
 const Sequelize = require('sequelize');
-const databaseConfig = require('../config/database');
+const databaseConfig = require('../config/database')();
 
 const config = {
-  ...databaseConfig[process.env.ENV],
+  ...databaseConfig,
   define: {
     timestamps: false,
     underscored: true,

@@ -7,25 +7,26 @@ const defaultConfig = {
   dialect: 'postgres',
 };
 
-// istanbul ignore next
-if (!process.env.ENV) {
-  process.env.ENV = 'development';
-}
-
-exports.development = defaultConfig;
-
-exports.staging = {
-  ...defaultConfig,
-  pool: {
-    max: 2,
-    min: 0,
+const config = {
+  development: defaultConfig,
+  staging: {
+    ...defaultConfig,
+    pool: {
+      max: 2,
+      min: 0,
+    },
+  },
+  production: {
+    ...defaultConfig,
+    pool: {
+      max: 2,
+      min: 0,
+    },
   },
 };
 
-exports.production = {
-  ...defaultConfig,
-  pool: {
-    max: 2,
-    min: 0,
-  },
+module.exports = () => {
+  const env = process.env.ENV ? process.env.ENV : 'development';
+
+  return config[env];
 };
