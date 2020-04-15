@@ -1,4 +1,4 @@
-const Teacher = require('./Teacher');
+const { Teacher } = require('../config/models');
 const teacherSchema = require('./teacherSchema');
 const createTeacher = require('./createTeacher');
 const destroyTeacher = require('./destroyTeacher');
