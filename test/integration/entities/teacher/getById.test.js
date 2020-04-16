@@ -12,7 +12,7 @@ describe('Teacher Entity', () => {
       await Teacher.destroy({ where: {} });
     });
 
-    it('should return teacher when is id exists', async () => {
+    it('should return teacher when id exists', async () => {
       const { id: teacherId } = await Teacher.create(teacherFixture);
 
       const teacher = await getTeacherById(teacherId);

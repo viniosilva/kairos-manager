@@ -13,7 +13,7 @@ describe('Discipline Entity', () => {
       await Discipline.destroy({ where: {} });
     });
 
-    it('should return discipline when is id exists', async () => {
+    it('should return discipline when id exists', async () => {
       const { id: disciplineId } = await Discipline.create(disciplineFixture);
 
       const discipline = await getDisciplineById(disciplineId);

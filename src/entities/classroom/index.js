@@ -1,4 +1,4 @@
-const { Classroom } = require('../config/models');
+const Classroom = require('./Classroom');
 const classroomSchema = require('./schema');
 const createClassroom = require('./create');
 const destroyClassroom = require('./destroy');

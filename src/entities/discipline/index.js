@@ -1,4 +1,4 @@
-const { Discipline } = require('../config/models');
+const Discipline = require('./Discipline');
 const disciplineSchema = require('./schema');
 const createDiscipline = require('./create');
 const destroyDiscipline = require('./destroy');

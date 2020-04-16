@@ -13,7 +13,7 @@ describe('Classroom Entity', () => {
       await Classroom.destroy({ where: {} });
     });
 
-    it('should destroy classroom when is id exists', async () => {
+    it('should destroy classroom when id exists', async () => {
       const { id: classroomId } = await Classroom.create(classroomFixture);
 
       await destroyClassroom(classroomId);
