@@ -2,7 +2,7 @@ const { getClassroomById } = require('../../../../src/services/classroom');
 const { getClassroomById: getClassroomByIdMock } = require('../../../../src/entities/classroom');
 const { NotFoundError, ValidationError } = require('../../../../src/common/errors');
 
-jest.mock('../../../../src/entities/classroom/getClassroomById');
+jest.mock('../../../../src/entities/classroom/getById');
 
 const classroomFixture = {
   name: 'A',

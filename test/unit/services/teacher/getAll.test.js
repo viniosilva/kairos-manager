@@ -1,7 +1,7 @@
 const { getTeachers } = require('../../../../src/services/teacher');
 const { getTeachers: getTeachersMock } = require('../../../../src/entities/teacher');
 
-jest.mock('../../../../src/entities/teacher/getTeachers');
+jest.mock('../../../../src/entities/teacher/getAll');
 
 const teachersFixture = [{
   fullName: 'Test1',

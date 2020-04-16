@@ -1,14 +1,14 @@
-const formatTeacherRequest = require('./formatTeacherRequest');
-const formatTeacherResponse = require('./formatTeacherResponse');
+const formatRequest = require('./formatRequest');
+const formatResponse = require('./formatResponse');
 const { validateUuid } = require('../common');
 const { updateTeacher } = require('../../entities/teacher');
 
 module.exports = async (teacherId, payload) => {
   validateUuid(teacherId);
 
-  const formatedPayload = formatTeacherRequest(payload);
+  const formatedPayload = formatRequest(payload);
   const teacher = await updateTeacher(teacherId, formatedPayload);
-  const formatedTeacher = formatTeacherResponse(teacher);
+  const formatedTeacher = formatResponse(teacher);
 
   return formatedTeacher;
 };

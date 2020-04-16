@@ -1,7 +1,7 @@
 const { updateDiscipline } = require('../../../../src/services/discipline');
 const { updateDiscipline: updateDisciplineMock } = require('../../../../src/entities/discipline');
 
-jest.mock('../../../../src/entities/discipline/updateDiscipline');
+jest.mock('../../../../src/entities/discipline/update');
 
 const disciplineFixture = {
   name: 'Português',

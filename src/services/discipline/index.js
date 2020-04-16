@@ -1,8 +1,8 @@
-const createDiscipline = require('./createDiscipline');
-const destroyDiscipline = require('./destroyDiscipline');
-const getDisciplineById = require('./getDisciplineById');
-const getDisciplines = require('./getDisciplines');
-const updateDiscipline = require('./updateDiscipline');
+const createDiscipline = require('./create');
+const destroyDiscipline = require('./destroy');
+const getDisciplineById = require('./getById');
+const getDisciplines = require('./getAll');
+const updateDiscipline = require('./update');
 
 module.exports = {
   createDiscipline,

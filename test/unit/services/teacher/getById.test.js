@@ -2,7 +2,7 @@ const { getTeacherById } = require('../../../../src/services/teacher');
 const { getTeacherById: getTeacherByIdMock } = require('../../../../src/entities/teacher');
 const { NotFoundError, ValidationError } = require('../../../../src/common/errors');
 
-jest.mock('../../../../src/entities/teacher/getTeacherById');
+jest.mock('../../../../src/entities/teacher/getById');
 
 const teacherFixture = {
   fullName: 'Test',

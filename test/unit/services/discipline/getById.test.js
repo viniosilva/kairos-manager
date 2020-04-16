@@ -2,7 +2,7 @@ const { getDisciplineById } = require('../../../../src/services/discipline');
 const { getDisciplineById: getDisciplineByIdMock } = require('../../../../src/entities/discipline');
 const { NotFoundError, ValidationError } = require('../../../../src/common/errors');
 
-jest.mock('../../../../src/entities/discipline/getDisciplineById');
+jest.mock('../../../../src/entities/discipline/getById');
 
 const disciplineFixture = {
   name: 'Português',

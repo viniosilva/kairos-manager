@@ -1,4 +1,4 @@
-const formatTeacherResponse = require('./formatTeacherResponse');
+const formatResponse = require('./formatResponse');
 const { getTeachers } = require('../../entities/teacher');
 const { queries } = require('../../config');
 
@@ -7,7 +7,7 @@ module.exports = async (page, pageSize) => {
   const offset = page || queries.offset;
 
   const teachers = await getTeachers(limit, offset);
-  const formatedTeachers = teachers.map((teacher) => formatTeacherResponse(teacher));
+  const formatedTeachers = teachers.map((teacher) => formatResponse(teacher));
 
   return formatedTeachers;
 };

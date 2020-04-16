@@ -1,7 +1,7 @@
 const { createTeacher } = require('../../../../src/services/teacher');
 const { createTeacher: createTeacherMock } = require('../../../../src/entities/teacher');
 
-jest.mock('../../../../src/entities/teacher/createTeacher');
+jest.mock('../../../../src/entities/teacher/create');
 
 const teacherFixture = {
   fullName: 'Test',

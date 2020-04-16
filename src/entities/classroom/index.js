@@ -1,10 +1,10 @@
 const { Classroom } = require('../config/models');
-const classroomSchema = require('./classroomSchema');
-const createClassroom = require('./createClassroom');
-const destroyClassroom = require('./destroyClassroom');
-const getClassroomById = require('./getClassroomById');
-const getClassrooms = require('./getClassrooms');
-const updateClassroom = require('./updateClassroom');
+const classroomSchema = require('./schema');
+const createClassroom = require('./create');
+const destroyClassroom = require('./destroy');
+const getClassroomById = require('./getById');
+const getClassrooms = require('./getAll');
+const updateClassroom = require('./update');
 
 module.exports = {
   Classroom,

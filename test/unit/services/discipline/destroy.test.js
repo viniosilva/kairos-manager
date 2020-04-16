@@ -1,7 +1,7 @@
 const { destroyDiscipline } = require('../../../../src/services/discipline');
 const { destroyDiscipline: destroyDisciplineMock } = require('../../../../src/entities/discipline');
 
-jest.mock('../../../../src/entities/discipline/destroyDiscipline');
+jest.mock('../../../../src/entities/discipline/destroy');
 
 describe('Discipline Service', () => {
   describe('Destroy Discipline', () => {

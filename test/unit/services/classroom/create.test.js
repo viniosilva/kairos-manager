@@ -1,7 +1,7 @@
 const { createClassroom } = require('../../../../src/services/classroom');
 const { createClassroom: createClassroomMock } = require('../../../../src/entities/classroom');
 
-jest.mock('../../../../src/entities/classroom/createClassroom');
+jest.mock('../../../../src/entities/classroom/create');
 
 const classroomFixture = {
   name: 'A',
